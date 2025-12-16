@@ -1,0 +1,226 @@
+:root {
+    /* Las variables deben estar definidas en assets.css o ser añadidas aquí */
+    --bg-dark: rgb(20, 21, 23);
+    --primary-color: #6C63FF;
+    --accent-color: #FF6B6B;
+    --text-light: #f0f0f0;
+    --input-bg: rgb(40, 41, 43);
+}
+
+body
+{
+    font-family: '8bitOperatorPlus', sans-serif;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 12px;
+    background: rgb(30, 31, 33);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    /* 🌟 ANIMACIÓN: Contenedor principal 🌟 */
+    animation: fade-in-up 0.6s ease-out; 
+}
+
+h1 {
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    /* 🌟 ANIMACIÓN: Retraso de 0.1s 🌟 */
+    animation: fade-in-up 0.6s ease-out 0.1s backwards; 
+}
+h2 {
+    color: var(--text-light);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* 🌟 ANIMACIÓN: Configuración de Jugadores (0.2s) 🌟 */
+.container > .config-group:nth-of-type(1) {
+    animation: fade-in-up 0.6s ease-out 0.2s backwards;
+}
+/* 🌟 ANIMACIÓN: Configuración de Impostores (0.3s) 🌟 */
+.container > .config-group:nth-of-type(2) {
+    animation: fade-in-up 0.6s ease-out 0.3s backwards;
+}
+
+.warning-text {
+    display: block;
+    color: var(--accent-color);
+    margin-top: 5px;
+    font-size: 0.85rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+/* Estilo de los campos de input (Original) */
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--input-bg);
+    color: var(--text-light);
+    border-radius: 5px;
+    box-sizing: border-box; 
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* --- ESTILOS PARA EL NUEVO CONTROL DE PASOS (+/-) --- */
+.input-stepper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Ocultar las flechas nativas del input[type="number"] y aplicar estilo de flex */
+.input-stepper input[type="number"] {
+    /* Anulación de la regla width: 100% de la regla genérica, ahora usa flex-grow */
+    width: auto; 
+    flex-grow: 1; 
+    border-radius: 0; /* Quitamos el radio en el input central */
+    text-align: center; /* Centrar el número */
+    height: 40px; /* Asegurar la altura con los botones */
+    
+    /* Para navegadores basados en Webkit (Chrome, Safari) */
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Para Firefox */
+.input-stepper input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+.stepper-button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 1px solid var(--primary-color);
+    width: 40px; /* Ancho fijo para el botón */
+    height: 40px; /* Altura para que coincida con el input */
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    line-height: 1; /* Ajustar el texto */
+    padding: 0;
+    margin: 0;
+}
+
+.stepper-button:hover {
+    background-color: #5d55e0;
+}
+
+/* Estilos de bordes para los botones de las esquinas */
+.stepper-button.minus {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: none;
+}
+
+.stepper-button.plus {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: none;
+}
+
+/* Aseguramos que el borde del input central se conecte correctamente */
+.input-stepper input[type="number"] {
+    border-left: 1px solid var(--primary-color);
+    border-right: 1px solid var(--primary-color);
+}
+/* --- FIN ESTILOS CONTROL DE PASOS --- */
+
+
+#playerNamesContainer {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+    /* 🌟 ANIMACIÓN: Inputs de nombres (0.4s) 🌟 */
+    animation: fade-in-up 0.6s ease-out 0.4s backwards; 
+}
+
+#playerNamesContainer label {
+    grid-column: 1 / 2;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* Aseguramos que los inputs de texto mantengan el radio */
+input[type="text"] {
+    border-radius: 5px;
+}
+
+
+/* --- Estilos de Botones (el resto se mantiene) --- */
+
+.startButton {
+    display: block; 
+    width: 100%; 
+    box-sizing: border-box; 
+    
+    background-color: var(--accent-color);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: none;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4);
+    cursor: pointer;
+    color: var(--text-light);
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: inherit;
+    text-align: center;
+    /* 🌟 ANIMACIÓN: Botón de inicio (0.5s) y Pulso 🌟 */
+    animation: fade-in-up 0.6s ease-out 0.5s backwards, color-pulse 2s infinite alternate 0.5s;
+}
+
+.startButton:hover {
+    background-color: #e05e5e; 
+    transform: translateY(-2px);
+}
+
+.backButton {
+    display: block;
+    width: 100%; 
+    box-sizing: border-box; 
+    
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    
+    transition: background-color 0.3s, color 0.3s;
+    font-family: inherit;
+    font-size: 0.9rem;
+    /* 🌟 ANIMACIÓN: Botón de regreso (0.6s) 🌟 */
+    animation: fade-in-up 0.6s ease-out 0.6s backwards;
+}
+
+.backButton:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}

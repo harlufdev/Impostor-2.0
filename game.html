@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partida - Impostor Palabra Secreta</title>
+    <link rel="stylesheet" href="css/assets.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>    
+<body onload="loadGame()">
+    <div class="container">
+        <h1>Tu Identidad</h1>
+        
+        <div id="identity-section">
+            <h2 id="currentPlayerName" class="player-name-reveal">Cargando...</h2>
+            
+            <div id="role-display" class="role-card">
+                <p class="role-label">Eres...</p>
+                <p id="playerRole" class="role-text">...</p>
+            </div>
+
+            <div id="clue-container" style="display: none;">
+                <p class="clue-label">Pista:</p>
+                <p id="groupClue" class="clue-text"></p>
+            </div>
+
+            <button id="nextPlayerButton" class="actionButton" onclick="nextPlayer()">
+                Revelar identidad
+            </button>
+        </div>
+
+        <div id="game-started-section" style="display: none;">
+            <p class="ready-message">¡Todos han visto su rol! El juego ha comenzado. ¡A debatir!</p>
+            <p class="ready-message-small">Cuando termine el debate y la votación, presiona el botón de Revelación.</p>
+
+            <button id="revealResultsButton" class="actionButton" onclick="revealResults()">
+                Revelar Resultados
+            </button>
+        </div>
+
+        <div id="results-section" style="display: none;">
+            <h2>Resultados de la Partida</h2>
+            
+            <div class="result-box word-box">
+                <p class="result-label">Palabra Secreta:</p>
+                <p id="finalWord" class="result-text"></p>
+            </div>
+            
+            <div class="result-box impostor-box">
+                <p class="result-label">Impostor(es):</p>
+                <p id="finalImpostors" class="result-text"></p>
+            </div>
+
+            <button class="actionButton restart-button" onclick="window.location.href='menu.html'">
+                Nueva Partida
+            </button>
+        </div>
+    </div>
+
+    <script src="js/words.js"></script>
+    <script src="js/game.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadGame);
+    </script>
+</body>
+</html>

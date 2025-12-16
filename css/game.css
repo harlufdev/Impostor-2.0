@@ -1,0 +1,169 @@
+:root {
+    --bg-dark: rgb(20, 21, 23);
+    --primary-color: #6C63FF;
+    --accent-color: #FF6B6B;
+    --text-light: #f0f0f0;
+    --card-bg: rgb(30, 31, 33);
+}
+
+body
+{
+    font-family: '8bitOperatorPlus', sans-serif;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* 🌟 ANIMACIÓN: Contenedor principal 🌟 */
+    animation: fade-in-up 0.6s ease-out; 
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    /* 🌟 ANIMACIÓN: Título con retraso 🌟 */
+    animation: fade-in-up 0.6s ease-out 0.1s backwards;
+}
+
+/* --- SECCIÓN DE IDENTIDAD --- */
+
+.player-name-reveal {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    /* 🌟 ANIMACIÓN: Nombre de jugador 🌟 */
+    animation: fade-in-up 0.5s ease-out 0.2s backwards; 
+}
+
+.role-card {
+    background-color: rgb(40, 41, 43);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* 🌟 ANIMACIÓN: Carta de rol 🌟 */
+    animation: fade-in-up 0.5s ease-out 0.4s backwards; 
+}
+
+.role-label {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.role-text {
+    /* El tamaño de fuente base se redefine en JS al revelar */
+    font-size: 2.5rem; 
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* 🌟 CLASE DINÁMICA DE REVELACIÓN (usa keyframes de assets.css) 🌟 */
+.role-revealed {
+    animation: role-reveal-flash 0.3s ease-out;
+}
+
+.clue-label {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.clue-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: bold;
+    margin: 10px 0 20px 0;
+}
+
+
+/* --- BOTÓN DE ACCIÓN --- */
+
+.actionButton {
+    background-color: var(--primary-color);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: none;
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.4);
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: inherit;
+    width: 100%;
+    /* 🌟 ANIMACIÓN: Pulso de color para botón principal 🌟 */
+    animation: color-pulse 2s infinite alternate 0.5s;
+}
+
+.actionButton:hover {
+    background-color: #5d55e0;
+    transform: translateY(-2px);
+}
+
+/* --- SECCIÓN DE INICIO DE PARTIDA --- */
+
+.ready-message {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    /* 🌟 ANIMACIÓN: Mensaje de "listo" 🌟 */
+    animation: fade-in-up 0.6s ease-out 0.1s backwards;
+}
+
+.ready-message-small {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* --- SECCIÓN DE RESULTADOS --- */
+
+.result-box {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    /* 🌟 ANIMACIÓN: Resultados escalonados 🌟 */
+    animation: fade-in-up 0.5s ease-out;
+}
+
+.result-box:nth-of-type(1) { animation-delay: 0.2s; }
+.result-box:nth-of-type(2) { animation-delay: 0.4s; }
+
+.word-box {
+    background-color: var(--primary-color);
+}
+
+.impostor-box {
+    background-color: var(--accent-color);
+}
+
+.result-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5px;
+}
+
+.result-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.restart-button {
+    margin-top: 30px;
+}

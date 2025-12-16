@@ -1,0 +1,74 @@
+@font-face {
+    font-family: '8bitOperatorPlus';
+    src: url('https://deltarune.com/assets/fonts/8bitOperatorPlus-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+/* --- NUEVAS ANIMACIONES DE VITALIDAD --- */
+
+/* 1. Aparición con Deslizamiento Suave (Usado en todas las páginas) */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Pulso de Color Sutil (para botones) */
+@keyframes color-pulse {
+    0%, 100% {
+        /* Usamos el color de acento o el principal para la sombra */
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.4); 
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 107, 107, 0.8); 
+    }
+}
+
+/* 3. Animación de Revelación Rápida (para rol/palabra en game.html) */
+@keyframes role-reveal-flash {
+    0% { transform: scale(0.9); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; color: white; }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+	0% { transform: translate(0); }
+	10% { transform: translate(-2px, -2px); }
+	20% { transform: translate(2px, -2px); }
+	30% { transform: translate(-2px, 2px); }
+	40% { transform: translate(2px, 2px); }
+	50% { transform: translate(-2px, -2px); }
+	60% { transform: translate(2px, -2px); }
+	70% { transform: translate(-2px, 2px); }
+	80% { transform: translate(-2px, -2px); }
+	90% { transform: translate(2px, -2px); }
+	100% { transform: translate(0); }
+}
+
+/* Animación de aparición del Splash (ORIGINAL) */
+@keyframes splashAppear {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animación de bucle para el Splash (ORIGINAL) */
+@keyframes splashLoop {
+    0% { transform: translateX(0%) rotate(0deg) scale(1); }
+    25% { transform: translateX(-5%) rotate(-5deg) scale(1.05); }
+    50% { transform: translateX(0%) rotate(0deg) scale(1); }
+    75% { transform: translateX(5%) rotate(5deg) scale(1.05); }
+    100% { transform: translateX(0%) rotate(0deg) scale(1); }
+}

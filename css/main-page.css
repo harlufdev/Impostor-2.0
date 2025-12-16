@@ -1,0 +1,87 @@
+:root {
+    --bg-dark: rgb(20, 21, 23);
+    --primary-color: #6C63FF; /* Un tono moderno de morado/azul */
+    --accent-color: #FF6B6B; /* Rojo vibrante */
+    --text-light: #f0f0f0;
+    --shadow-light: rgba(108, 99, 255, 0.4);
+}
+
+body
+{
+    font-family: '8bitOperatorPlus', sans-serif;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 12px;
+    background: rgb(30, 31, 33);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.title-text {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--shadow-light);
+    animation: splashAppear 1.5s ease-out 1 forwards, 
+               splashLoop 2.5s ease-in-out infinite 1.5s;
+    opacity: 0;
+}
+
+.subtitle-text {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 2rem;
+}
+
+/* Estilo del Botón de Inicio */
+.startButton {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: none;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    cursor: pointer;
+    color: var(--text-light);
+    /* Añadir box-shadow a la transición */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.5s; 
+    font-family: inherit;
+}
+
+.button-icon {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+/* Aplicar el pulso de color */
+.pulse-animation {
+    animation: color-pulse 2s infinite alternate;
+}
+
+.startButton:hover {
+    background-color: #5d55e0; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-light);
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #555;
+}

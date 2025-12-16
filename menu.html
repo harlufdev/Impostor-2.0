@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Impostor Palabra Secreta</title>
+    <link rel="stylesheet" href="css/assets.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>    
+<body>
+    <div class="container">
+        <h1>Configuración de la Partida</h1>
+        
+        <div class="config-group">
+            <label for="playerCount">Número de Jugadores:</label>
+            <div class="input-stepper">
+                <button type="button" class="stepper-button minus" onclick="decrement('playerCount')">−</button>
+                <input type="number" id="playerCount" value="4" min="3" max="12" onchange="updatePlayerInputs()">
+                <button type="button" class="stepper-button plus" onclick="increment('playerCount')">+</button>
+            </div>
+            </div>
+        
+        <div class="config-group">
+            <label for="impostorCount">Número de Impostores:</label>
+            <div class="input-stepper">
+                <button type="button" class="stepper-button minus" onclick="decrement('impostorCount')">−</button>
+                <input type="number" id="impostorCount" value="1" min="1" max="3" onchange="updatePlayerInputs()">
+                <button type="button" class="stepper-button plus" onclick="increment('impostorCount')">+</button>
+            </div>
+            <small id="impostorWarning" class="warning-text"></small>
+        </div>
+
+        <h2>Nombres de los Jugadores</h2>
+        <div id="playerNamesContainer">
+            </div>
+
+        <button id="startGameButton" class="startButton" onclick="startGame()">Comenzar Partida</button>
+        <p id="error-message" class="warning-text"></p>
+        
+        <a href="index.html" class="backButton">Volver al Inicio</a>
+        
+    </div>
+
+    <script src="js/words.js"></script>
+    <script src="js/game.js"></script> 
+    
+    <script>
+        // Funciones auxiliares para los botones de + y -
+        function changeInputValue(inputId, delta) {
+            const input = document.getElementById(inputId);
+            let currentValue = parseInt(input.value);
+            const minValue = parseInt(input.min);
+            const maxValue = parseInt(input.max);
+
+            let newValue = currentValue + delta;
+
+            if (newValue < minValue) {
+                newValue = minValue;
+            } else if (newValue > maxValue) {
+                newValue = maxValue;
+            }
+
+            input.value = newValue;
+            // Disparar el evento change para que la función updatePlayerInputs() 
+            // valide, re-renderice nombres y guarde la nueva configuración.
+            input.dispatchEvent(new Event('change'));
+        }
+
+        function increment(inputId) {
+            changeInputValue(inputId, 1);
+        }
+
+        function decrement(inputId) {
+            changeInputValue(inputId, -1);
+        }
+
+        // Inicialización: Carga desde localStorage y luego renderiza los inputs
+        window.onload = function() {
+            const playerCountInput = document.getElementById('playerCount');
+            const impostorCountInput = document.getElementById('impostorCount');
+            
+            // Cargar valores guardados si existen
+            const storedPlayerCount = localStorage.getItem('playerCount');
+            const storedImpostorCount = localStorage.getItem('impostorCount');
+
+            if (storedPlayerCount) {
+                playerCountInput.value = storedPlayerCount;
+            }
+            if (storedImpostorCount) {
+                impostorCountInput.value = storedImpostorCount;
+            }
+            
+            // Inicializar la interfaz con los valores cargados (o por defecto)
+            updatePlayerInputs();
+        }
+    </script>
+</body>
+</html>
