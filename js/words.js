@@ -57,4 +57,5 @@ const WORD_LIST = [
     { word: "Cojones", clue: "Doloroso" },
     { word: "Orgasmo", clue: "Intentar hacerlo" },
     { word: "Vaper", clue: "Frutas" },
+    { word: "David", clue: "Excusa de Rivas" },
 ];
